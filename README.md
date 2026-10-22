@@ -1,2 +1,2 @@
-# str-pwa-pruebas
-Prueba de instalación de STR-IG
+# str-pwa
+Herramienta digital STR - información laboral y permisos retribuidos

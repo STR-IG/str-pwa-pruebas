@@ -1,5 +1,15 @@
-<!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#e30613"><title>STR-IG · Prueba de instalación</title><link rel="manifest" href="./manifest.json"><link rel="apple-touch-icon" href="./icono-str-ig-192.png"><script src="./install.js" defer></script><style>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#e30613">
+  <title>STR-IG</title>
+  <link rel="icon" type="image/png" href="icono-str-ig.png?v=logo-sindicato-20261016">
+  <link rel="apple-touch-icon" href="icono-str-ig.png?v=logo-sindicato-20261016">
+  <link rel="manifest" href="manifest.json">
+  <script src="./install.js" defer></script>
+  <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --red:#e30613; --red-dark:#b9000b; --red-soft:#fff0f1; --black:#161616; --grey:#6e6e73; --light:#f5f5f7; --white:#fff; }
     html, body { width:100%; overflow-x:hidden; }
@@ -162,8 +172,9 @@
       .join-button { width:100%; text-align:center; }
       .news-alerts { align-items:flex-start; flex-direction:column; }
     }
-  </style></head>
-<body><p style="padding:12px;text-align:center;background:#fff3cd">VERSIÓN DE PRUEBA · No modifica la app pública</p>
+  </style>
+</head>
+<body>
 <section class="install-panel" id="install-panel" aria-labelledby="install-title">
   <h2 id="install-title">Instala STR-IG en tu móvil</h2>
   <p>Ten STR-IG a mano desde el icono de tu pantalla de inicio. También puedes seguir usando la web.</p>
@@ -184,6 +195,141 @@
   </div>
   <p id="install-status" role="status"></p>
 </section>
+<header class="hero" aria-label="Destacados">
+  <div class="hero-track" id="hero-carousel">
+    <a class="hero-slide" href="demo-app.html" role="img" aria-label="Prueba la demo de la app STR-IG"></a>
+    <a class="hero-slide dia-afiliacion" href="dia-afiliacion.html" role="img" aria-label="Día de la Afiliación STR, 24 de octubre"></a>
+    <a class="hero-slide loteria-navidad" href="https://wa.me/34625641044?text=Hola%20Roc%C3%ADo%2C%20quiero%20comprar%20un%20d%C3%A9cimo%20de%20la%20loter%C3%ADa%20de%20Navidad%20de%20STR." target="_blank" rel="noopener noreferrer" aria-label="Lotería de Navidad STR 2026, número 30.234, 21 euros por décimo. Contactar con Rocío por WhatsApp (se abre en otra aplicación o pestaña)"></a>
+  </div>
+  <div class="hero-dots" aria-label="Seleccionar destacado">
+    <button type="button" class="hero-dot active" aria-label="Ver destacado 1" data-slide="0"></button>
+    <button type="button" class="hero-dot" aria-label="Ver destacado 2" data-slide="1"></button>
+    <button type="button" class="hero-dot" aria-label="Ver lotería de Navidad STR" data-slide="2"></button>
+  </div>
+</header>
+<main>
+  <section class="news-alerts" id="news-alerts-panel" aria-label="Avisos de novedades" hidden>
+    <div class="news-alerts-copy"><strong>Activa los avisos de STR-IG</strong><span class="news-alerts-status" id="news-alerts-status">Recibe un aviso cuando haya una novedad, incluso con la app cerrada.</span></div>
+    <button class="news-alerts-button" id="enable-news-alerts" type="button">ACTIVAR AVISOS</button>
+  </section>
+  <section class="section" aria-label="Accesos principales">
+    <div class="area-block">
+      <h2 class="area-heading" id="area-privada">ÁREA PRIVADA</h2>
+      <div class="area-grid">
+        <a href="acceso-privado.html" class="quick-card menu-image-card"><img src="calcula-tu-v-referencia.webp" alt="Calcula tu V, área privada"></a>
+        <a href="acceso-privado.html" class="quick-card menu-image-card" onclick="sessionStorage.setItem('strAfterLogin','revisa-nomina.html')" aria-label="Revisa tu nómina, acceso privado para afiliados"><img src="revisa-tu-nomina-card.webp" alt="Revisa tu nómina, área privada"></a>
+        <a href="acceso-privado.html?next=comunicados-internos.html" class="quick-card menu-image-card news-notification-card internal-communications-card" data-news-category="internal-communications" aria-label="Comunicados internos, acceso privado para afiliados"><img src="card-comunicados-internos-titulo-arriba.webp" alt="Comunicados internos, área privada"><span class="news-notification-badge" data-news-badge aria-label="Novedades sin leer">0</span></a>
+        <a href="acceso-privado.html?next=estadisticas-nomina.html" class="quick-card menu-image-card" aria-label="Estadísticas de nómina, acceso privado para afiliados"><img src="card-estadisticas-nomina.webp" alt="Estadísticas de nómina, área privada"></a>
+        <a href="acceso-privado.html?next=justificantes-oficiales.html" class="quick-card menu-image-card" aria-label="Justificantes oficiales, acceso privado para afiliados"><img src="justificantes-oficiales.webp" alt="Justificantes oficiales, área privada" loading="lazy"></a>
+      </div>
+    </div>
+    <div class="area-block">
+      <h2 class="area-heading">ÁREA PÚBLICA</h2>
+      <div class="area-grid">
+        <a href="encuestas.html" class="quick-card menu-image-card" aria-label="Participa en las encuestas. Tu opinión cuenta"><img src="card-participa-encuestas.webp" style="object-fit:contain" alt="Participa en las encuestas. Tu opinión cuenta" loading="lazy"></a>
+        <a href="permisos-publicos.html" class="quick-card menu-image-card"><img src="card-permisos-retribuidos-ajustada.webp" style="object-fit:contain" alt="Permisos retribuidos"></a>
+        <a href="menu-comedor.html" class="quick-card menu-image-card news-notification-card" id="menu-card" data-news-category="menu"><img src="menu-comedor.webp" alt="Menú comedor"><span class="news-notification-badge" data-news-badge aria-label="Novedades sin leer">0</span></a>
+        <a href="alertas-meteorologicas.html" class="quick-card menu-image-card" aria-label="Emergencias: alertas oficiales de Protecció Civil"><img src="card-alertas-meteorologicas.webp" style="object-fit:contain" alt="Emergencias: alertas oficiales de Protecció Civil" loading="lazy"></a>
+        <a href="estado-carreteras.html" class="quick-card menu-image-card"><img src="card-estado-carreteras-v2.webp" style="object-fit:contain" alt="Estado de las carreteras. Tráfico e incidencias oficiales"></a>
+        <a href="actualidad-laboral.html" class="quick-card menu-image-card news-notification-card" data-news-category="labor-news" aria-label="Actualidad laboral"><img src="card-actualidad-laboral.webp" alt="Actualidad laboral"><span class="news-notification-badge" data-news-badge aria-label="Novedades sin leer">0</span></a>
+        <a href="actualidad-empresa.html" class="quick-card menu-image-card news-notification-card" data-news-category="company-news" aria-label="Actualidad de tu empresa"><img src="card-actualidad-empresa.webp" alt="Actualidad de tu empresa"><span class="news-notification-badge" data-news-badge aria-label="Novedades sin leer">0</span></a>
+        <a class="quick-card menu-image-card sindical-news-card news-notification-card" href="actividad-informacion-sindical.html" data-news-category="activity" data-news-categories="activity documentation-info" aria-label="ACTIVIDAD E INFORMACIÓN SINDICAL"><img src="actividad-sindical-480x295.webp" alt="ACTIVIDAD E INFORMACIÓN SINDICAL"><span class="news-notification-badge" data-news-badge aria-label="Novedades sin leer">0</span></a>
+        <article class="quick-card menu-image-card" aria-label="Nuestra sección sindical STR-IG"><img src="card-nuestra-seccion-sindical.webp" alt="Nuestra sección sindical STR-IG"></article>
+        <a href="votaciones.html" class="quick-card menu-image-card voting-image-card" aria-label="Elecciones generales del 29-N: votaciones y permisos laborales"><img src="card-votaciones.webp" alt="Votaciones. Elecciones generales · 29-N" loading="lazy"></a>
+        <a href="conoce-tus-derechos.html" class="quick-card menu-image-card rights-image-card" aria-label="Conoce tus derechos"><img src="card-conoce-tus-derechos-propuesta-v5.webp" alt="Conoce tus derechos"></a>
+        <article class="list-item"><div class="list-icon">📅</div><div class="list-text"><strong>Calendarios</strong><span>Turnos, festivos, horarios y planificación anual.</span></div><div class="arrow">›</div></article>
+        <article class="list-item"><div class="list-icon">👥</div><div class="list-text"><strong>El sindicato</strong><span>Conoce STR, nuestro proyecto y nuestros valores.</span></div><div class="arrow">›</div></article>
+        <article class="list-item"><div class="list-icon">☎️</div><div class="list-text"><strong>Contacto</strong><span>Estamos para ayudarte. Escríbenos o llámanos.</span></div><div class="arrow">›</div></article>
+      </div>
+      <div class="section-header"><a href="actividad-informacion-sindical.html">Ver todas →</a></div>
+    </div>
+  </section>
+  <section id="permisos" class="section">
+    <div class="section-header"><h2>Permisos retribuidos</h2><a href="#">Ver todos →</a></div>
+    <div style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; width:100%;">
+      <a href="#hospitalizacion-primer-grado" class="permit-link" style="display:block; width:100%;"><img src="boton-hospitalizacion-primer-grado.png" alt="Hospitalización familiar primer grado" style="width:100%; height:auto; display:block; border-radius:18px;"></a>
+      <a href="#hospitalizacion-segundo-grado" class="permit-link" style="display:block; width:100%;"><img src="card-hospitalizacion-familiar-segundo-grado.png" alt="Hospitalización familiar segundo grado" style="width:100%; aspect-ratio:1.45/1; object-fit:contain; display:block; border-radius:18px;"></a>
+      <a href="#intervencion-familiar-sin-ingreso-primer-grado" class="permit-link" style="display:block; width:100%;"><img src="intervencion-familiar-sin-ingreso-primer-grado.png" alt="Intervención familiar sin ingreso 1er grado" style="width:100%; aspect-ratio:1.45/1; object-fit:contain; display:block; border-radius:18px;"></a>
+      <article class="permit-card"><div class="icon">🕊️</div><h3>Fallecimiento familiar</h3><span class="tag">Ver permiso</span></article>
+      <article class="permit-card"><div class="icon">💍</div><h3>Matrimonio</h3><span class="tag">15 días</span></article>
+      <article class="permit-card"><div class="icon">🩺</div><h3>Intervención quirúrgica</h3><span class="tag">Ver permiso</span></article>
+      <article class="permit-card"><div class="icon">📄</div><h3>Deber inexcusable</h3><span class="tag">Ver permiso</span></article>
+      <article class="permit-card"><div class="icon">⚠️</div><h3>Fuerza mayor</h3><span class="tag">Ver permiso</span></article>
+    </div>
+  </section>
+  <section id="hospitalizacion-primer-grado" class="section permit-detail"><div class="section-header"><h2>Hospitalización familiar de primer grado</h2></div><img src="Hospitalizacion familiar primer grado.png" alt="Ficha Hospitalización familiar de primer grado" style="width:100%; height:auto; border-radius:20px; display:block;"></section>
+  <section id="hospitalizacion-segundo-grado" class="section permit-detail"><div class="section-header"><h2>Hospitalización familiar de segundo grado</h2></div><img src="ficha-hospitalizacion-segundo-grado.png" alt="Ficha hospitalización familiar de segundo grado" style="width:100%; height:auto; border-radius:20px; display:block;"></section>
+  <section id="intervencion-familiar-sin-ingreso-primer-grado" class="section permit-detail"><div class="section-header"><h2>Intervención familiar sin ingreso 1er grado</h2></div><img src="ficha-intervencion-familiar-sin-ingreso-primer-grado.png" alt="Ficha Intervención familiar sin ingreso 1er grado" style="width:100%; height:auto; border-radius:20px; display:block;"></section>
+  <section id="menu" class="section permit-detail"><div class="section-header"><h2>Menú del comedor</h2></div><img src="menu-semana-1.png" alt="Menú semana 1" style="width:100%; height:auto; border-radius:20px; display:block; margin-bottom:20px;"><img src="menu-semana-2.png" alt="Menú semana 2" style="width:100%; height:auto; border-radius:20px; display:block; margin-bottom:20px;"><img src="menu-semana-3.png" alt="Menú semana 3" style="width:100%; height:auto; border-radius:20px; display:block; margin-bottom:20px;"><img src="menu-semana-4.png" alt="Menú semana 4" style="width:100%; height:auto; border-radius:20px; display:block; margin-bottom:20px;"></section>
+</main>
+<div class="news-onboarding" id="news-onboarding" role="dialog" aria-modal="true" aria-labelledby="news-onboarding-title" hidden>
+  <div class="news-onboarding-card">
+    <div class="news-onboarding-icon" aria-hidden="true">🔔</div>
+    <h2 id="news-onboarding-title">Activa los avisos de STR-IG</h2>
+    <p>Recibe un aviso cuando haya una novedad y consulta el número pendiente desde el icono, incluso con la app cerrada.</p>
+    <div class="news-onboarding-actions">
+      <button class="news-onboarding-primary" id="onboarding-enable-news-alerts" type="button">ACTIVAR AVISOS</button>
+      <button class="news-onboarding-later" id="dismiss-news-onboarding" type="button">Ahora no</button>
+    </div>
+  </div>
+</div>
+<a id="committee-signup-card" href="panel-administracion.html" class="committee-fab" aria-label="Panel de administración STR-IG" title="Panel de administración">⚙</a>
 
-<main><h1>STR-IG · Prueba de instalación</h1><p>Si has abierto esta pantalla desde el icono instalado y no aparece la guía, la prueba ha funcionado.</p><p>Esta vista previa solo comprueba la instalación. No contiene el área privada ni activa avisos.</p></main>
-<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('./service-worker.js').catch(console.error);</script></body></html>
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+const card = document.getElementById('committee-signup-card');
+const supabaseUrl = 'https://icneigdnuntzugisexaz.supabase.co';
+const publishableKey = 'sb_publishable_apKjcPClIBTHS2wwN6qPsA_6Vm4tk9m';
+const supabase = createClient(supabaseUrl, publishableKey, { auth: { detectSessionInUrl:false, persistSession:true, autoRefreshToken:true } });
+try { const { data: { session } } = await supabase.auth.getSession(); if (session?.access_token) { const response = await fetch(`${supabaseUrl}/functions/v1/manage-affiliates`, { method:'POST', headers:{ 'Authorization':`Bearer ${session.access_token}`, 'Content-Type':'application/json', 'apikey':publishableKey }, body:JSON.stringify({ action:'authorize' }) }); if (response.ok) card.classList.add('show'); } } catch (_error) { card.classList.remove('show'); }
+</script>
+<script type="module">
+import { initNews } from './novedades.js';
+initNews({
+  pushButtonId:'enable-news-alerts',
+  pushStatusId:'news-alerts-status',
+  pushPanelId:'news-alerts-panel',
+  onboardingId:(window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true) ? 'news-onboarding' : undefined,
+  onboardingButtonId:'onboarding-enable-news-alerts',
+  onboardingDismissId:'dismiss-news-onboarding'
+});
+
+const heroCarousel = document.getElementById('hero-carousel');
+const heroDots = Array.from(document.querySelectorAll('.hero-dot'));
+if (heroCarousel && heroDots.length) {
+  const HERO_AUTOPLAY_DELAY = 15000;
+  let heroAutoplayTimer;
+  let heroScrollTimer;
+  const visibleHeroIndex = () => Math.max(0, Math.min(Math.round(heroCarousel.scrollLeft / Math.max(heroCarousel.clientWidth, 1)), heroDots.length - 1));
+  const setActiveHeroDot = (index) => { heroDots.forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === index)); };
+  const scheduleHeroAutoplay = () => {
+    clearTimeout(heroAutoplayTimer);
+    heroAutoplayTimer = setTimeout(() => {
+      const nextIndex = (visibleHeroIndex() + 1) % heroDots.length;
+      heroCarousel.scrollTo({ left:nextIndex * heroCarousel.clientWidth, behavior:'smooth' });
+      setActiveHeroDot(nextIndex);
+    }, HERO_AUTOPLAY_DELAY);
+  };
+  heroDots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const index = Number(dot.dataset.slide || 0);
+      heroCarousel.scrollTo({ left:index * heroCarousel.clientWidth, behavior:'smooth' });
+      setActiveHeroDot(index);
+      scheduleHeroAutoplay();
+    });
+  });
+  heroCarousel.addEventListener('scroll', () => {
+    clearTimeout(heroScrollTimer);
+    heroScrollTimer = setTimeout(() => {
+      setActiveHeroDot(visibleHeroIndex());
+      scheduleHeroAutoplay();
+    }, 60);
+  }, { passive:true });
+  scheduleHeroAutoplay();
+}
+
+if ('serviceWorker' in navigator) { window.addEventListener('load', async () => { try { const registration = await navigator.serviceWorker.register('./service-worker.js', { updateViaCache:'none' }); registration.update(); let refreshing=false; navigator.serviceWorker.addEventListener('controllerchange', () => { if (refreshing) return; refreshing=true; window.location.reload(); }); } catch (error) { console.error('Error al registrar el Service Worker:', error); } }); }
+</script>
+  <script type="module" src="./app-analytics.js"></script>
+</body>
+</html>
