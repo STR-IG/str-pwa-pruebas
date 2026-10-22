@@ -1,0 +1,24 @@
+{
+  "name": "STR-IG · Prueba",
+  "short_name": "STR-IG Prueba",
+  "id": "/str-pwa-pruebas/",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#e30613",
+  "icons": [
+    {
+      "src": "icono-str-ig-192.png?v=logo-sindicato-20261016",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icono-str-ig-512.png?v=logo-sindicato-20261016",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
