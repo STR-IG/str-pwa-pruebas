@@ -37,7 +37,51 @@
       status.textContent = 'Sigue los pasos de Chrome para instalar la app.';
     } finally { android.disabled = false; }
   });
-  iphone.addEventListener('click', () => { androidSelected = false; guide('iphone'); status.textContent = ''; });
+  const title = document.getElementById('screen-title');
+  const intro = document.getElementById('screen-intro');
+  const copyStep = document.getElementById('iphone-copy-step');
+  const safariStep = document.getElementById('iphone-safari-step');
+  const next = document.getElementById('iphone-next');
+  const copyStatus = document.getElementById('copy-status');
+  let iphoneStep = 1;
+  function showIphoneStep(step) {
+    iphoneStep = step;
+    title.textContent = step === 1 ? 'Paso 1 · Copia el enlace' : 'Paso 2 · Abre Safari y pega el enlace';
+    copyStep.hidden = step !== 1;
+    safariStep.hidden = step !== 2;
+    title.focus();
+    window.scrollTo(0, 0);
+  }
+  iphone.addEventListener('click', () => {
+    androidSelected = false;
+    guide('iphone');
+    status.textContent = '';
+    document.querySelector('.actions').hidden = true;
+    intro.hidden = true;
+    copyStatus.textContent = '';
+    next.hidden = true;
+    showIphoneStep(1);
+  });
+  document.getElementById('copy-iphone-link').addEventListener('click', async () => {
+    const url = new URL('./', location.href).href;
+    try {
+      await navigator.clipboard.writeText(url);
+      copyStatus.textContent = 'Enlace copiado. Continúa al paso 2.';
+    } catch {
+      copyStatus.textContent = 'Mantén pulsado el enlace de abajo y elige Copiar enlace. Después continúa al paso 2.';
+    }
+    next.hidden = false;
+  });
+  next.addEventListener('click', () => showIphoneStep(2));
+  document.getElementById('iphone-back').addEventListener('click', () => {
+    if (iphoneStep === 2) { showIphoneStep(1); return; }
+    document.getElementById('iphone-guide').hidden = true;
+    iphone.setAttribute('aria-expanded', 'false');
+    document.querySelector('.actions').hidden = false;
+    intro.hidden = false;
+    title.textContent = 'Instala STR-IG';
+    iphone.focus();
+  });
   window.addEventListener('appinstalled', () => { deferredPrompt = null; status.textContent = 'App instalada. Ábrela desde el icono de tu pantalla de inicio.'; });
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('./service-worker.js', {updateViaCache:'none'}).then(registration => registration.update()).catch(() => {});
 })();
