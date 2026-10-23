@@ -40,6 +40,12 @@
   const title = document.getElementById('screen-title');
   const intro = document.getElementById('screen-intro');
   const copyStatus = document.getElementById('copy-status');
+  const iphoneInstallUrl = new URL('./', location.href);
+  iphoneInstallUrl.searchParams.set('install', 'iphone');
+  document.querySelectorAll('#iphone-guide .install-url').forEach(link => {
+    link.href = iphoneInstallUrl.href;
+    link.textContent = iphoneInstallUrl.href;
+  });
   iphone.addEventListener('click', () => {
     androidSelected = false;
     guide('iphone');
@@ -53,7 +59,7 @@
     window.scrollTo(0, 0);
   });
   document.getElementById('copy-iphone-link').addEventListener('click', async () => {
-    const url = new URL('./', location.href).href;
+    const url = iphoneInstallUrl.href;
     try {
       await navigator.clipboard.writeText(url);
       copyStatus.textContent = 'Enlace copiado. Abre Safari y sigue el paso 2.';
@@ -71,6 +77,10 @@
     iphone.focus();
     window.scrollTo(0, 0);
   });
+  if (new URLSearchParams(location.search).get('install') === 'iphone') {
+    iphone.click();
+    document.getElementById('copy-status').textContent = 'Ya has abierto el enlace. Si estás en Safari, continúa en el paso 3: Pulsa Compartir.';
+  }
   window.addEventListener('appinstalled', () => { deferredPrompt = null; status.textContent = 'App instalada. Ábrela desde el icono de tu pantalla de inicio.'; });
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('./service-worker.js', {updateViaCache:'none'}).then(registration => registration.update()).catch(() => {});
 })();
