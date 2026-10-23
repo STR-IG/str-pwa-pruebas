@@ -1,46 +1,43 @@
 (() => {
-  const panel = document.getElementById('install-panel');
-  const button = document.getElementById('install-app');
+  const android = document.getElementById('install-android');
+  const iphone = document.getElementById('install-iphone');
   const status = document.getElementById('install-status');
-  const ios = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-  const standalone = window.matchMedia('(display-mode: standalone)');
   let deferredPrompt;
-  let installed = false;
-
-  function render() {
-    panel.hidden = installed || standalone.matches || navigator.standalone === true;
-    document.getElementById('install-ios').hidden = !ios;
-    document.getElementById('install-other').hidden = ios;
-    button.hidden = ios || !deferredPrompt || panel.hidden;
+  let androidSelected = false;
+  const standalone = matchMedia('(display-mode: standalone)');
+  const openApp = () => location.replace('./app.html');
+  if (standalone.matches || navigator.standalone === true) { openApp(); return; }
+  standalone.addEventListener('change', () => { if (standalone.matches) openApp(); });
+  document.querySelectorAll('.install-url').forEach(link => { link.href = new URL('./', location.href).href; link.textContent = link.href; });
+  function guide(platform) {
+    for (const name of ['android', 'iphone']) {
+      const selected = name === platform;
+      document.getElementById(`${name}-guide`).hidden = !selected;
+      document.getElementById(`install-${name}`).setAttribute('aria-expanded', String(selected));
+    }
   }
-
-  window.addEventListener('beforeinstallprompt', (event) => {
+  window.addEventListener('beforeinstallprompt', event => {
     event.preventDefault();
     deferredPrompt = event;
-    render();
+    if (androidSelected) status.textContent = 'La instalación está disponible. Pulsa de nuevo Instalar en Android.';
   });
-  window.addEventListener('appinstalled', () => {
-    installed = true;
-    deferredPrompt = null;
-    render();
-  });
-  standalone.addEventListener('change', render);
-  button.addEventListener('click', async () => {
+  android.addEventListener('click', async () => {
+    androidSelected = true;
+    guide('android');
+    status.textContent = '';
     if (!deferredPrompt) return;
     const prompt = deferredPrompt;
     deferredPrompt = null;
-    button.hidden = true;
+    android.disabled = true;
     try {
       await prompt.prompt();
       const choice = await prompt.userChoice;
-      status.textContent = choice.outcome === 'accepted'
-        ? 'Has aceptado la instalación. Sigue las indicaciones del navegador.'
-        : 'Puedes instalarla más tarde desde el menú del navegador.';
-    } catch (_error) {
-      status.textContent = 'Abre el menú del navegador y elige Instalar aplicación o Añadir a pantalla de inicio.';
-    }
+      status.textContent = choice.outcome === 'accepted' ? 'Confirma la instalación y abre STR-IG Prueba desde el icono de tu móvil.' : 'Puedes volver a intentarlo desde el menú de Chrome.';
+    } catch {
+      status.textContent = 'Sigue los pasos de Chrome para instalar la app.';
+    } finally { android.disabled = false; }
   });
-  render();
+  iphone.addEventListener('click', () => { androidSelected = false; guide('iphone'); status.textContent = ''; });
+  window.addEventListener('appinstalled', () => { deferredPrompt = null; status.textContent = 'App instalada. Ábrela desde el icono de tu pantalla de inicio.'; });
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('./service-worker.js', {updateViaCache:'none'}).then(registration => registration.update()).catch(() => {});
 })();
-

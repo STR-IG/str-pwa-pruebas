@@ -2,7 +2,7 @@
   "name": "STR-IG · Prueba completa",
   "short_name": "STR-IG Prueba",
   "id": "/str-pwa-pruebas/",
-  "start_url": "./",
+  "start_url": "./app.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
