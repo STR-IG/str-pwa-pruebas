@@ -8,10 +8,10 @@
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icono-str-ig-192.png">
 <script>if (matchMedia('(display-mode: standalone)').matches || navigator.standalone === true) location.replace('./app.html');</script>
-<script src="install.js?v=iphone-steps-20261023" defer></script>
+<script src="install.js?v=iphone-full-guide-20261023" defer></script>
 <style>
 *{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:28px 20px;background:#f5f5f7;color:#191919;font-family:Arial,Helvetica,sans-serif}main{width:min(100%,420px);text-align:center}.logo{width:96px;height:96px;object-fit:contain;margin-bottom:20px}h1{font-size:30px;letter-spacing:-1px;margin:0 0 12px}p{color:#63636b;line-height:1.55;margin:0 0 28px}.actions{display:grid;gap:14px}button{width:100%;padding:21px 18px;border:0;border-radius:18px;background:#e30613;color:#fff;font:700 18px Arial;cursor:pointer;min-height:66px}button.iphone{background:#191919}button:focus-visible,a:focus-visible{outline:3px solid #246cdb;outline-offset:4px}button:disabled{opacity:.6}section{margin-top:24px;padding:22px;text-align:left;border:1px solid #ddd;border-radius:18px;background:white}section h2{font-size:20px;margin:0 0 14px}ol{padding-left:22px;margin:0;line-height:1.65}li+li{margin-top:10px}section p{margin:16px 0 0;font-size:14px}a{color:#b9000b;overflow-wrap:anywhere}[hidden]{display:none!important}#install-status{margin:18px 0 0;font-size:14px}small{display:block;margin-top:26px;color:#777;font-size:12px}
-</style>
+#iphone-guide{padding:0;border:0;background:transparent}.guide-card{margin-bottom:16px;padding:20px;border:1px solid #e3e3e6;border-radius:20px;background:white}.guide-card p{margin:10px 0 16px;font-size:16px}.guide-image{display:block;width:100%;height:auto;margin:18px auto 0;border-radius:12px}.confirmation-image{max-width:280px}.guide-card .image-note{font-size:12px;color:#777;margin:10px 0 0}.guide-back{background:#eee;color:#333;font-size:16px}body.iphone-guide-open{display:block}body.iphone-guide-open main{margin:0 auto}body.iphone-guide-open .logo{width:64px;height:64px}body.iphone-guide-open h1{font-size:28px}#screen-title:focus{outline:none}</style>
 </head>
 <body>
 <main>
@@ -27,18 +27,15 @@
 <ol><li>Abre este enlace en <strong>Google Chrome</strong>.</li><li>Pulsa el menú <strong>⋮</strong> y elige <strong>Instalar aplicación</strong> o <strong>Añadir a pantalla de inicio</strong>.</li><li>Confirma y abre <strong>STR-IG Prueba</strong> desde el nuevo icono.</li></ol>
 <p>Si estás dentro de otra aplicación, usa su menú para abrir el enlace en Chrome o copia esta dirección: <a class="install-url" href="./"></a></p>
 </section>
-<section id="iphone-guide" hidden>
-<div id="iphone-copy-step">
-<p style="margin:0 0 18px">Copia este enlace para abrirlo en Safari.</p>
-<button id="copy-iphone-link">Copiar enlace</button>
-<p id="copy-status" role="status" aria-live="polite"></p>
-<p><a class="install-url" href="./"></a></p>
-<button id="iphone-next" class="iphone" style="margin-top:20px" hidden>Continuar al paso 2</button>
-</div>
-<div id="iphone-safari-step" hidden>
-<ol><li>Sal de esta pantalla y busca <strong>Safari</strong> <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 64 64" role="img" aria-label="Icono de Safari: brújula azul" style="display:inline-block;vertical-align:middle;margin:4px 5px"><rect x="1" y="1" width="62" height="62" rx="14" fill="#fff" stroke="#ddd"/><circle cx="32" cy="32" r="26" fill="#168bea"/><g stroke="white" stroke-width="1.5"><path d="M32 9v4" transform="rotate(0 32 32)"/><path d="M32 9v4" transform="rotate(30 32 32)"/><path d="M32 9v4" transform="rotate(60 32 32)"/><path d="M32 9v4" transform="rotate(90 32 32)"/><path d="M32 9v4" transform="rotate(120 32 32)"/><path d="M32 9v4" transform="rotate(150 32 32)"/><path d="M32 9v4" transform="rotate(180 32 32)"/><path d="M32 9v4" transform="rotate(210 32 32)"/><path d="M32 9v4" transform="rotate(240 32 32)"/><path d="M32 9v4" transform="rotate(270 32 32)"/><path d="M32 9v4" transform="rotate(300 32 32)"/><path d="M32 9v4" transform="rotate(330 32 32)"/></g><path d="M45 18 28 28 19 46 36 36Z" fill="#fff"/><path d="M45 18 28 28 36 36Z" fill="#ed3d45"/><circle cx="32" cy="32" r="2" fill="#fff"/></svg> en tu iPhone. Ábrela aunque uses otro navegador habitualmente.</li><li>Mantén pulsada la barra de direcciones, elige <strong>Pegar</strong> y pulsa <strong>Ir</strong>.</li><li>En Safari, pulsa <strong>Compartir</strong> (el cuadrado con una flecha hacia arriba).</li><li>Elige <strong>Añadir a pantalla de inicio</strong>. Si aparece <strong>Abrir como app web</strong>, déjalo activado.</li><li>Pulsa <strong>Añadir</strong> y abre <strong>STR-IG Prueba</strong> desde el nuevo icono.</li></ol>
-</div>
-<button id="iphone-back" style="margin-top:24px;background:#eee;color:#333">Volver</button>
+<section id="iphone-guide" hidden aria-label="Guía de instalación en iPhone">
+<div class="guide-card"><h2>Antes de empezar</h2><p>Para seguir esta guía, abre el enlace en <strong>Safari</strong>. Si estás dentro de WhatsApp, Instagram u otra app, puede que no aparezca la opción de instalar.</p></div>
+<div class="guide-card"><h2>1. Copia el enlace</h2><p>Pulsa el botón y el enlace se copiará. <em>Si ya estás en Safari con la página abierta, salta al paso 3.</em></p><button id="copy-iphone-link">Copiar enlace</button><p id="copy-status" role="status" aria-live="polite"></p><p><a class="install-url" href="./"></a></p></div>
+<div class="guide-card"><h2>2. Ábrelo en Safari</h2><p>Abre <strong>Safari</strong> (el icono de la brújula azul). Mantén pulsada la barra de direcciones, elige <strong>Pegar</strong> y pulsa <strong>Ir</strong>.</p><img class="guide-image" src="iphone-pegar.webp" width="345" height="333" alt="Enlace pegado en la barra de direcciones. Pulsa la tecla azul con la flecha, señalada en rojo."><p class="image-note">Captura del sitio de pruebas.</p></div>
+<div class="guide-card"><h2>3. Pulsa Compartir</h2><p>Busca el icono del cuadrado con una flecha hacia arriba. Suele estar abajo, en el centro. Si no lo ves, mira en el menú <strong>⋯</strong> de la barra de Safari: según tu versión de iOS puede estar ahí.</p><img class="guide-image" src="iphone-compartir.webp" width="660" height="185" alt="Barra de Safari con el botón Compartir rodeado en rojo."><p class="image-note">Ilustración orientativa. La posición puede variar.</p></div>
+<div class="guide-card"><h2>4. Añade a pantalla de inicio</h2><p>En el menú Compartir, <strong>desliza hacia abajo</strong> y pulsa <strong>Añadir a pantalla de inicio</strong>. Si no aparece, busca <strong>Editar acciones</strong> al final de la lista.</p><img class="guide-image" src="iphone-inicio.webp" width="317" height="225" alt="Menú Compartir con Añadir a pantalla de inicio señalado en rojo."></div>
+<div class="guide-card"><h2>5. Confirma con Añadir</h2><p>Deja <strong>«Abrir como app web»</strong> activado si aparece. Pulsa <strong>Añadir</strong>, arriba a la derecha.</p><img class="guide-image confirmation-image" src="iphone-confirmar.webp" width="360" height="400" alt="Ilustración de la confirmación con Añadir señalado y Abrir como app web activado."><p class="image-note">Ilustración provisional de STR-IG Prueba.</p></div>
+<div class="guide-card"><h2>¡Listo!</h2><p>Ya tienes el icono de <strong>STR-IG Prueba</strong> en tu pantalla de inicio. <strong>Ábrela siempre desde ese icono</strong> para que funcione como una app.</p></div>
+<button id="iphone-back" class="guide-back">Volver a elegir Android o iPhone</button>
 </section>
 <p id="install-status" role="status" aria-live="polite"></p>
 <small>Versión de pruebas</small>
