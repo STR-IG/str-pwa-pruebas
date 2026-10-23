@@ -73,12 +73,14 @@
     document.querySelector('.actions').hidden = false;
     intro.hidden = false;
     title.textContent = 'Instala STR-IG';
-    document.body.classList.remove('iphone-guide-open');
+    document.body.classList.remove('iphone-guide-open', 'resume-iphone');
     iphone.focus();
     window.scrollTo(0, 0);
   });
   if (new URLSearchParams(location.search).get('install') === 'iphone') {
     iphone.click();
+    document.body.classList.add('resume-iphone');
+    title.textContent = 'Ahora pulsa Compartir';
     document.getElementById('copy-status').textContent = 'Ya has abierto el enlace. Si estás en Safari, continúa en el paso 3: Pulsa Compartir.';
   }
   window.addEventListener('appinstalled', () => { deferredPrompt = null; status.textContent = 'App instalada. Ábrela desde el icono de tu pantalla de inicio.'; });
